@@ -2,18 +2,17 @@ package controller;
 
 import java.util.Random;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 public class RoletaThread extends Thread{
 	
 	private JTextField roleta;
-//	private JTextField roleta2;
-//	private JTextField roleta3;
+	private JButton btnJogar;
 	
-	public RoletaThread(JTextField roleta){
+	public RoletaThread(JTextField roleta, JButton btnJogar){
 		this.roleta = roleta;
-//		this.roleta2 = roleta2;
-//		this.roleta3 = roleta3;
+		this.btnJogar = btnJogar;
 	}
 
 	@Override
@@ -22,6 +21,7 @@ public class RoletaThread extends Thread{
 	}
 	
 	private void girarRoleta(){
+		btnJogar.setEnabled(false);
 		Random random = new Random();
 		for(int i = 1; i<=150; i++){
 			String num =Integer.toString(random.nextInt(7) + 1);
@@ -32,7 +32,7 @@ public class RoletaThread extends Thread{
 				ex.printStackTrace();
 			}
 		}
-		
+		btnJogar.setEnabled(true);
 	}
 	
 	

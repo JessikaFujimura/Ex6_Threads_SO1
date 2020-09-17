@@ -81,9 +81,9 @@ public class Roleta extends JFrame {
 		btnJogar.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				Thread thread1 = new RoletaThread(roleta1);
-				Thread thread2 = new RoletaThread(roleta2);
-				Thread thread3 = new RoletaThread(roleta3);
+				Thread thread1 = new RoletaThread(roleta1, btnJogar);
+				Thread thread2 = new RoletaThread(roleta2, btnJogar);
+				Thread thread3 = new RoletaThread(roleta3, btnJogar);
 				thread1.start();
 				thread2.start();
 				thread3.start();
